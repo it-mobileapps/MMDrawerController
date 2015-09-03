@@ -429,7 +429,8 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     }
     
     _centerViewController = centerViewController;
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMMDrawerCenterControllerChangeNotification object:_centerViewController];
+
     [self addChildViewController:self.centerViewController];
     [self.centerViewController.view setFrame:self.childControllerContainerView.bounds];
     [self.centerContainerView addSubview:self.centerViewController.view];

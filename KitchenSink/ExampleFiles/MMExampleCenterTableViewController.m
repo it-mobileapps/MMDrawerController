@@ -57,6 +57,10 @@ typedef NS_ENUM(NSInteger, MMCenterViewControllerSection){
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:kMMDrawerCenterControllerChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"kMMDrawerCenterControllerChangeNotification %@", note);
+    }];
+    
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
